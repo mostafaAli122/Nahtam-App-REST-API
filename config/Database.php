@@ -21,4 +21,12 @@
             }
             return $this->conn;
         }
+        public static function query($query,$params=array()){
+			$statement=$this->conn->prepare($query);
+			$statement->execute($params);
+			if (explode(' ',$query)[0] == 'SELECT') {
+				$data = $statement->fetchAll();
+				return $data;
+			}		
+		}
     }
