@@ -8,12 +8,13 @@
         public $id;
         public $order_id;
         public $service_id;
+        public $service_name;
         //Constructor with DB
         public function __construct($db){
             $this->DB=$db;
         }
         
-        public function read_single(){
+        public function readAllOrderDetails(){
            //create query
            $query = 'SELECT O.id as order_ID ,O.status  ,O.order_date, S.name as service_name ,S.price as service_price
            FROM order_details OD 
@@ -24,7 +25,8 @@
             WHERE
                 OD.id = :id';
 
-            $statement= $this->DB->query($query,array(':id'=>$this->id));
+              $statement= $this->DB->query($query,array(':id'=>$this->id));
+              return $statement;
 
         }
         public function create(){
@@ -71,6 +73,20 @@
             }
             return false;
       }
+      public function GetLastOrderID(){
+           // Create query
+           $query = 'SELECT Max(id) from order';
+           // Execute query
+           $LastOrderID= $this->DB->query($query);
+           return $LastOrderID;
+      }
+      public function GetServiceID(){
+        // Create query
+        $query = 'SELECT id from services where name = :name';
+        // Execute query
+        $ServiceID= $this->DB->query($query,arraY(':name'=>$this->name));
+        return $ServiceID;
+   }
   
 
 
