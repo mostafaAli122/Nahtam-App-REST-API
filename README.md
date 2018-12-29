@@ -3,7 +3,7 @@
 > This is a Nahtam App REST API from scratch with no framework.
 
 ## Quick Start
-###Users
+##Users
 To Create New User 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/user/createNewUser.php
@@ -25,6 +25,7 @@ Access Control Method : GET
 URL : http://localhost/Nahtam_APP_APIs/api/category/readAll.php
 
 ###Services
+
 To Create New Service 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/services/create.php
@@ -42,6 +43,7 @@ Access Control Method : GET
 URL : http://localhost/Nahtam_APP_APIs/api/category/readAll.php
 
 ###Orders
+
 To Create New Order 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/order/create.php
@@ -53,6 +55,7 @@ Access Control Method : DELETE
 URL : http://localhost/Nahtam_APP_APIs/api/order/delete.php
 
 ###Order Details
+
 To Create New Order Detail 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/order_details/create.php
