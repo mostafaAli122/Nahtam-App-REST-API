@@ -1,8 +1,7 @@
 <?php
-include_once('../config/Database.php');    
     class User{
          //DB params
-         private $conn;
+         private $DB;
          private $table='users'; 
         //User Properties
         public $id;
@@ -16,7 +15,7 @@ include_once('../config/Database.php');
 
         //Constructor with DB
         public function __construct($db){
-            $this->conn=$db;
+            $this->DB=$db;
         }
 
         //Create new User
@@ -26,15 +25,15 @@ include_once('../config/Database.php');
              $this->username=htmlspecialchars(strip_tags($this->username));
              $this->password=htmlspecialchars(strip_tags($this->password));
              $this->phone=htmlspecialchars(strip_tags($this->phone));
-             $this->email=htmlspecialchars(strip_tags($this->emil));
+             $this->email=htmlspecialchars(strip_tags($this->email));
              //check if username doesn't exit in the users table
-             if (!$this->conn->query('SELECT username FROM users WHERE username=:username', array(':username'=>$this->username))) {
+             if (!$this->DB->query('SELECT username FROM users WHERE username=:username', array(':username'=>$this->username))) {
                 if (strlen($this->username) >= 3 && strlen($this->username) <= 32) {
                         if (preg_match('/[a-zA-Z0-9_]+/', $this->username)) {
                             if (strlen($this->password) >= 6 && strlen($this->password) <= 60) {
                                 if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-                                    if (!$this->conn->query('SELECT phone FROM users WHERE phone=:phone', array(':phone'=>$this->phone))) {
-                                            $this->conn->query('INSERT INTO users VALUES (\'\', :username, :password, :email, :phone)', array(':username'=>$this->username, ':password'=>password_hash($this->password, PASSWORD_BCRYPT), ':email'=>$this->email,':phone',$this->phone));
+                                    if (!$this->DB->query('SELECT phone FROM users WHERE phone=:phone', array(':phone'=>$this->phone))) {
+                                            $this->DB->query('INSERT INTO users VALUES (\'\', :username, :password, :email, :phone)', array(':username'=>$this->username, ':password'=>password_hash($this->password, PASSWORD_BCRYPT), ':email'=>$this->email,':phone',$this->phone));
                                             $this->message = "Success!";
                                     } else {
                                         $this->message = 'Phone Number in use!';

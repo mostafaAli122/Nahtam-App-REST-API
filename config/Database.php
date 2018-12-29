@@ -10,7 +10,7 @@
         public function connect(){
             $this->conn=null;
 
-            //Error Handling when creating connectoin
+            //Error Handling when creating connection
             try{
                 $this->conn=new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,
                                     $this->username,$this->password);
