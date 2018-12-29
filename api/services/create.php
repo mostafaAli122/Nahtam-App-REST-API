@@ -13,7 +13,6 @@
    $database = new Database();
    $db = $database->connect();
    
-   //Instantiate  blog Post Object
    $service = new Service($db);
 
   // Get raw posted data
@@ -22,7 +21,7 @@
    $service->price = $data->price;
    $service->category_id = $data->category_id;
 
-   //Create Post
+   //Create Service
    if($service->create()){
        echo json_encode(array(
            'message' => 'service Created Successfully'
