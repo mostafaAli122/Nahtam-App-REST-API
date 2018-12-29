@@ -13,6 +13,9 @@
     //Instantiate order_detail object
     $order_detail = new Order_detail($db);
 
+      // Get Order ID
+    $order_detail->order_id = isset($_GET['id']) ? $_GET['id'] : die();
+
     // order_detail query
     $result = $order_detail->readAllOrderDetails();
 
