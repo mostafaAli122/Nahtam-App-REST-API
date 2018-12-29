@@ -7,6 +7,7 @@
         //Post Properties
         public $id;
         public $category_id;
+        public $category_name;
         public $name;
         public $price;
         public $created_at;
@@ -46,6 +47,7 @@
             $this->name=$row['name'];
             $this->price=$row['price'];
             $this->category_id=$row['category_id'];
+            $this->category_name=$row['category_name'];
             $this->created_at=$row['created_at'];
 
         }
