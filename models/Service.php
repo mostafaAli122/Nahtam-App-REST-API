@@ -1,6 +1,6 @@
 <?php
 
-    class Post{
+    class Service{
         //DB params
         private $DB;
 
