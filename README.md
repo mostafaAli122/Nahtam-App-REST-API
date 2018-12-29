@@ -3,7 +3,7 @@
 > This is a Nahtam App REST API from scratch with no framework.
 
 ## Quick Start
-##Users
+**Users**
 To Create New User 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/user/createNewUser.php
