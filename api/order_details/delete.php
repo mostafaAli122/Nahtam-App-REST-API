@@ -12,7 +12,7 @@
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog order object
+  // Instantiate blog order detail object
   $order_detail = new Order_detail($db);
 
   // Get raw ordered details data

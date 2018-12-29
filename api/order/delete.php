@@ -23,8 +23,19 @@
 
   // Delete order
   if($order->delete()) {
+    // Instantiate blog order detail object to delete all order details associated with this order
+    $order_detail = new Order_detail($db);
+    //set Order ID In Order details equal to Current ID
+    $order_detail->order_id=$data->id;
+    //call to method readAllOrderDetails to get all order details for specific order and delete it
+   $order_detailsToDelete= $order_detail->readAllOrderDetails();
+   foreach ($order_detailsToDelete as $order_detailsItem) {
+       $order_detailsItem->delete();
+   }
+
+
     echo json_encode(
-      array('message' => 'order Deleted')
+      array('message' => 'order Deleted Successfully & Order Details Also')
     );
   } else {
     echo json_encode(
