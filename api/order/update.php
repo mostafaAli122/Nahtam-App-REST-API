@@ -26,6 +26,7 @@
   $order->order_date = $data->order_date;
   $order->order_time = $data->order_time;
   $order->service_rate = $data->service_rate;
+  $order->user_id = $data->user_id;
 
   // Update order
   if($order->update()) {
