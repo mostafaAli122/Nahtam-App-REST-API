@@ -52,7 +52,7 @@
         }
         public function create(){
             //create query
-            $query='INSERT INTO order SET order_address = :name ,price = :price, category_id = :category_id';
+            $query='INSERT INTO services SET name = :name ,price = :price, category_id = :category_id';
 
             //clean data
             $this->name=htmlspecialchars(strip_tags($this->name));
