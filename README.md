@@ -4,10 +4,13 @@
 
 ## Quick Start
 **Users**
+
 To Create New User 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/user/createNewUser.php
-##Categories
+
+**Categories**
+
 To Create New category 
 Access Control Method : POST
 URL : http://localhost/Nahtam_APP_APIs/api/category/create.php
@@ -24,7 +27,7 @@ To Read All categories
 Access Control Method : GET
 URL : http://localhost/Nahtam_APP_APIs/api/category/readAll.php
 
-##Services
+**Services**
 
 To Create New Service 
 Access Control Method : POST
@@ -42,7 +45,7 @@ To Read All services
 Access Control Method : GET
 URL : http://localhost/Nahtam_APP_APIs/api/category/readAll.php
 
-##Orders
+**Orders**
 
 To Create New Order 
 Access Control Method : POST
@@ -54,7 +57,7 @@ To Delete Order And Delete All order Details For this Order
 Access Control Method : DELETE
 URL : http://localhost/Nahtam_APP_APIs/api/order/delete.php
 
-##Order Details
+**Order Details**
 
 To Create New Order Detail 
 Access Control Method : POST
