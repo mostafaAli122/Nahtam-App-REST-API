@@ -4,7 +4,7 @@
         //DB params
         private $DB;
 
-        //Post Properties
+        //Services Properties
         public $id;
         public $category_id;
         public $category_name;
@@ -16,8 +16,7 @@
         public function __construct($db){
             $this->DB=$db;
         }
-
-        //Get Posts
+        //Get services
         public function readAllServices(){
             // Create query
             $query = 'SELECT c.name as category_name, S.id, S.category_id, S.name, S.price, p.created_at
@@ -33,7 +32,7 @@
         }
         public function read_single(){
            //create query
-                     $query = 'SELECT c.name as category_name, S.id, S.category_id, S.name, S.price , S.created_at
+                     $query = 'SELECT c.name as category_name,S.id, S.category_id, S.name, S.price , S.created_at
                                     FROM services S
                                     LEFT JOIN
                                       categories c ON S.category_id = c.id
@@ -53,7 +52,7 @@
         }
         public function create(){
             //create query
-            $query='INSERT INTO services SET name = :name ,price = :price, category_id = :category_id';
+            $query='INSERT INTO order SET order_address = :name ,price = :price, category_id = :category_id';
 
             //clean data
             $this->name=htmlspecialchars(strip_tags($this->name));
@@ -80,7 +79,7 @@
             $this->id = htmlspecialchars(strip_tags($this->id));
     
             // Execute query
-            if($this->DB->query($query,array(':name'=>$this->name,':price'=>$this->price,':category_id'=>$this->category_id))) {
+            if($this->DB->query($query,array(':name'=>$this->name,':price'=>$this->price,':category_id'=>$this->category_id,'id'=>$this->id))) {
               return true;
             }
             return false;
