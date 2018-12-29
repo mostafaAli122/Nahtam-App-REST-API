@@ -9,8 +9,8 @@
     $database = new Database();
     $db = $database->connect();
 
-    //Instantiate blog post object
-    $service = new service($db);
+    //Instantiate Service object
+    $service = new Service($db);
 
     //Get ID
     $service->id=isset($_GET['id']) ? $_GET['id'] : die();
